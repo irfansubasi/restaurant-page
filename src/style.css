@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'Chillax-Variable';
+    src: url('fonts/Chillax-Variable.woff2') format('woff2'),
+         url('fonts/Chillax-Variable.woff') format('woff'),
+         url('fonts/Chillax-Variable.ttf') format('truetype');
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bitter Rose';
+    src: url('fonts/Bitter-Rose.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    color: #fff!important;
+    font-family: 'Chillax-Variable'!important;
+}
+
+.main-content{
+    background: url("images/bg-home.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navbar{
+    border-radius: 5rem;
+}
+
+#content h1{
+    font-size: calc(7rem + 1.5vw)!important;
+}
+
+#content h2{
+    
+    font-size: calc(2rem + 1.5vw)!important;
+}
+
+.btn:hover{
+    background-color: #000!important;
+}
+
+.active{
+    color: #fff!important;
+    background-color: #000!important;
+    border: none!important;
+    border-radius: 5rem!important;
+}
+
+.fancy-font{
+    font-family: 'Bitter Rose';
+}
+
+.menu-btn{
+    color: #fff!important;
+}
+
+.menu-nav .nav-item{
+    padding: 1rem;
+}
+
+.menu-nav .nav-item .active{
+    color: #E4A11B!important;
+}
+
+.card{
+    color: #fff!important;
+    background-color: transparent!important;
+}
+
+.card-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-pic{
+    width: 100%;
+    height: 9rem;
+    background-size: cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+}
+
+.menu h2{
+    font-size: 4rem;
+    color: #E4A11B;
+}
+
+.food-1{
+    background: url("images/toast.png");
+}
+
+.food-2{
+    background: url("images/soup.png");
+}
+
+.food-3{
+    background: url("images/pumpkin.png");
+}
