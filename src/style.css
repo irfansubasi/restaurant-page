@@ -94,14 +94,18 @@ body{
     color: #E4A11B;
 }
 
+.menu-active{
+    color: #E4A11B!important;
+}
+
+.food-0{
+    background-image: url("images/toast.png");
+}
+
 .food-1{
-    background: url("images/toast.png");
+    background-image: url("images/soup.png");
 }
 
 .food-2{
-    background: url("images/soup.png");
-}
-
-.food-3{
-    background: url("images/pumpkin.png");
+    background-image: url("images/pumpkin.png");
 }

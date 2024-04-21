@@ -15,8 +15,8 @@ function createMenu(){
         { text: "Starters", id: "starters" },
         { text: "Lunch", id: "lunch" },
         { text: "Dinner", id: "dinner" },
-        { text: "Wine", id: "wine" },
-        { text: "Drinks", id: "drinks" }
+        { text: "Special", id: "special" },
+        { text: "Desserts", id: "desserts" }
     ];
 
     for (let i = 0; i < menuItems.length; i++) {
@@ -43,14 +43,14 @@ function createMenu(){
     rightSide.appendChild(menuDiv);
 
     const h2 = document.createElement("h2");
-    h2.classList.add("fancy-font", "mb-5");
+    h2.classList.add("fancy-font", "mb-5", "menu-header");
     h2.textContent = "Starters";
     menuDiv.appendChild(h2);
 
     const foodItems = [
-        { header: "Tomato Toast", price: "$10" , class: "food-1", text: "Enjoy the classic toast enhanced with the refreshing touch of tomatoes." },
-        { header: "Noodle Soup", price: "$14.99" , class: "food-2", text: "Savor a warming bowl of herb-infused noodle soup." },
-        { header: "Pumpkin Soup", price: "$14.99" , class: "food-3", text: "Indulge in a creamy bowl of pumpkin soup, perfect for a cozy meal." }
+        { header: "Tomato Toast", price: "$10" , class: "food-0", text: "Enjoy the classic toast enhanced with the refreshing touch of tomatoes." },
+        { header: "Noodle Soup", price: "$14.99" , class: "food-1", text: "Savor a warming bowl of herb-infused noodle soup." },
+        { header: "Pumpkin Soup", price: "$14.99" , class: "food-2", text: "Indulge in a creamy bowl of pumpkin soup, perfect for a cozy meal." }
     ];
 
     for(let i = 0; i < foodItems.length; i++){
@@ -76,13 +76,16 @@ function createMenu(){
         cardTitle.classList.add("card-title");
 
         const header = document.createElement("h5");
+        header.id = `food-header-${i}`;
         header.textContent = `${foodItems[i].header}`;
 
         const price = document.createElement("h5");
+        price.id = `food-price-${i}`;
         price.textContent = `${foodItems[i].price}`;
 
         const text = document.createElement("p");
-        text.classList.add("card-text", "w-75");
+        text.id = `food-text-${i}`;
+        text.classList.add("card-text");
         text.textContent = `${foodItems[i].text}`;
 
         col4.appendChild(img);
@@ -97,19 +100,75 @@ function createMenu(){
         menuDiv.appendChild(card);
     }
 
-    function changeMenu(){
-        const menuNavbar = document.querySelector(".menu-nav");
-        const buttons = menuNavbar.querySelectorAll("button");
-
-        buttons.forEach((button) => {
-            if(button.id == "starters"){
-                
-            }
-        })
-    }
-    
     return rightSide;
+}
+
+function changeMenu(event){
+    const header = document.querySelector(".menu-header");
+    let foodItems;
+
+    if(event && event.target && event.target.id == "starters"){
+
+        header.textContent = "Starters";
+
+
+        foodItems = [
+            { header: "Tomato Toast", price: "$10" , text: "Enjoy the classic toast enhanced with the refreshing touch of tomatoes.", pic: "images/toast.png"},
+            { header: "Noodle Soup", price: "$14.99" , text: "Savor a warming bowl of herb-infused noodle soup.", pic: "images/soup.png"},
+            { header: "Pumpkin Soup", price: "$14.99" , text: "Indulge in a creamy bowl of pumpkin soup, perfect for a cozy meal.", pic: "images/pumpkin.png"}
+        ]
+    } else if(event && event.target && event.target.id == "lunch"){
+
+        header.textContent = "Lunch";
+
+        foodItems = [
+            { header: "Italian Pizza", price: "$12" , text: "Customized Italian pizzas, topped your way. Enjoy!", pic: 'images/pizza.png'},
+            { header: "Steak Burger", price: "$15" , text: "Crafted steak burgers, tailored to your taste. Choose toppings, enjoy every bite!", pic: 'images/burger.png'},
+            { header: "Thai Beef Salad", price: "$9.99" , text: "Tender beef, crisp veggies, zesty dressing - Thai beef salad, tailored for you.", pic: 'images/salad.png'}
+        ]
+    } else if(event && event.target && event.target.id == "dinner"){
+
+        header.textContent = "Dinner";
+
+        foodItems = [
+            { header: "Truffle Mushroom Ravioli", price: "$25" , text: "A sublime fusion of mushrooms and truffle.", pic: 'images/ravioli.png'},
+            { header: "Wagyu Sushi & Sashimi", price: "$27" , text: "Unparalleled quality, exquisite taste.", pic: 'images/sushi.png'},
+            { header: "Seafood Risotto", price: "$23" , text: "A symphony of flavors from the sea.", pic: 'images/risotto.png'}
+        ]
+    } else if(event && event.target && event.target.id == "special"){
+
+        header.textContent = "Special";
+
+        foodItems = [
+            { header: "Kobe Beef Steak", price: "$500" , text: "A renowned type of beef originating from specially bred Japanese Wagyu cattle, known for its unique flavor and tender texture.", pic: 'images/kobe.png'},
+            { header: "Lobster Thermidor", price: "$170" , text: "A luxurious and flavorful French classic featuring fresh grilled lobster, filled with creamy béchamel sauce and spicy cheese.", pic: 'images/lobster.png'},
+            { header: "Beluga Caviar Blini", price: "$250" , text: "A harmonious blend of luxury and flavor. Delicate blinis paired with rich Beluga caviar, creating a perfect symphony of taste. An absolute culinary delight.", pic: 'images/caviar.png'}
+        ]
+    } else if(event && event.target && event.target.id == "desserts"){
+
+        header.textContent = "Desserts";
+
+        foodItems = [
+            { header: "Crème Brûlée", price: "$11" , text: "French classic Crème Brûlée. Creamy and caramelized. A delicate flavor touch.", pic: 'images/creme.png'},
+            { header: "Tiramisu", price: "$13" , text: "Italian delight. Light and flavorful. Topped with cocoa. A sophisticated dessert choice.", pic: 'images/tiramisu.png'},
+            { header: "Panna Cotta", price: "$12" , text: "Italian elegance on a plate. Smooth, creamy indulgence. Served with fresh fruit sauce or caramel. A sophisticated dessert choice.", pic: 'images/panna.png'}
+        ]
+    }
+    updateMenu(foodItems);
+}
+
+function updateMenu(foodItems){
+    
+    for( let i = 0; i < 3; i++){
+        document.getElementById(`food-header-${i}`).textContent = foodItems[i].header;
+
+        document.getElementById(`food-price-${i}`).textContent = foodItems[i].price;
+
+        document.getElementById(`food-text-${i}`).textContent = foodItems[i].text;
+
+        document.querySelector(`.food-${i}`).style.backgroundImage = `url(${foodItems[i].pic})`;
+    }
 
 }
 
-export default createMenu;
+export {createMenu, changeMenu} ;

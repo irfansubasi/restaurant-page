@@ -1,6 +1,6 @@
 import loadHome from "./home";
 import createForm from "./reservation";
-import createMenu from "./menu";
+import {createMenu, changeMenu} from "./menu";
 
 function createHeader(){
     const header = document.createElement("header");
@@ -42,6 +42,7 @@ function createNavbar(){
             rightSide.remove();
         }
         mainContent.appendChild(createMenu());
+        menuButtons();
         const leftSide = document.querySelector("#left-side");
         leftSide.classList.remove("w-100");
         leftSide.classList.add("w-50");
@@ -106,6 +107,52 @@ function setActiveButton(button) {
     button.classList.add("active");
 }
 
+function setActiveButtonMenu(button) {
+    const buttons = document.querySelectorAll(".menu-btn");
+  
+    buttons.forEach((button) => {
+      if (button !== this) {
+        button.classList.remove("menu-active");
+      }
+    });
+  
+    button.classList.add("menu-active");
+}
+
+function menuButtons(){
+    const starters = document.getElementById("starters");
+    starters.addEventListener("click", function(event) {
+        setActiveButtonMenu(starters)
+        changeMenu(event);
+    });
+
+    const lunch = document.getElementById("lunch");
+    lunch.addEventListener("click", function(event) {
+        setActiveButtonMenu(lunch)
+        changeMenu(event);
+    });
+
+    const dinner = document.getElementById("dinner");
+    dinner.addEventListener("click", function(event) {
+        setActiveButtonMenu(dinner)
+        changeMenu(event);
+    });
+
+    const special = document.getElementById("special");
+    special.addEventListener("click", function(event) {
+        setActiveButtonMenu(special)
+        changeMenu(event);
+    });
+
+    const desserts = document.getElementById("desserts");
+    desserts.addEventListener("click", function(event) {
+        setActiveButtonMenu(desserts)
+        changeMenu(event);
+    });
+
+}
+
+
 function renderPage(){
 
     const mainContent = document.querySelector(".main-content");
@@ -120,7 +167,6 @@ function renderPage(){
     lefSide.appendChild(createMain());
     loadHome();
     lefSide.appendChild(createNavbar());
-
 }
 
 
