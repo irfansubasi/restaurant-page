@@ -57,6 +57,7 @@ body{
 
 .fancy-font{
     font-family: 'Bitter Rose';
+    color: #E4A11B!important
 }
 
 .menu-btn{
@@ -108,4 +109,13 @@ body{
 
 .food-2{
     background-image: url("images/pumpkin.png");
+}
+
+.info{
+    scrollbar-width: none; /* Firefox için */
+    -ms-overflow-style: none;
+}
+
+.info::-webkit-scrollbar {
+    display: none;
 }

@@ -1,6 +1,7 @@
 import loadHome from "./home";
 import createForm from "./reservation";
 import {createMenu, changeMenu} from "./menu";
+import createInfo from "./info";
 
 function createHeader(){
     const header = document.createElement("header");
@@ -56,6 +57,15 @@ function createNavbar(){
     RestButton.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveButton(RestButton);
+        mainContent.classList.remove("flex-column");
+        const rightSide = document.querySelector("#right-side");
+        if(rightSide){
+            rightSide.remove();
+        }
+        mainContent.appendChild(createInfo());
+        const leftSide = document.querySelector("#left-side");
+        leftSide.classList.remove("w-100");
+        leftSide.classList.add("w-50");
 
     });
     navbarCollapse.appendChild(RestButton);
