@@ -119,3 +119,12 @@ body{
 .info::-webkit-scrollbar {
     display: none;
 }
+
+.socials i{
+    margin: 1rem;
+    cursor: pointer;
+}
+
+#textInput{
+    resize: none;
+}

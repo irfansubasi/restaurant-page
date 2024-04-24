@@ -2,6 +2,7 @@ import loadHome from "./home";
 import createForm from "./reservation";
 import {createMenu, changeMenu} from "./menu";
 import createInfo from "./info";
+import createContact from "./contact";
 
 function createHeader(){
     const header = document.createElement("header");
@@ -70,15 +71,24 @@ function createNavbar(){
     });
     navbarCollapse.appendChild(RestButton);
 
-    const ClassButton = document.createElement("button");
-    ClassButton.classList.add("nav-item", "btn");
-    ClassButton.textContent = "Classes";
-    ClassButton.addEventListener("click", (e) => {
+    const contactButton = document.createElement("button");
+    contactButton.classList.add("nav-item", "btn");
+    contactButton.textContent = "Contact";
+    contactButton.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
-        setActiveButton(ClassButton);
+        setActiveButton(contactButton);
+        mainContent.classList.remove("flex-column");
+        const rightSide = document.querySelector("#right-side");
+        if(rightSide){
+            rightSide.remove();
+        }
+        mainContent.appendChild(createContact());
+        const leftSide = document.querySelector("#left-side");
+        leftSide.classList.remove("w-100");
+        leftSide.classList.add("w-50");
         
     });
-    navbarCollapse.appendChild(ClassButton);
+    navbarCollapse.appendChild(contactButton);
 
     const ReservButton = document.createElement("button");
     ReservButton.classList.add("nav-item", "btn");

@@ -7,6 +7,11 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    fallback: {
+      "path": require.resolve("path-browserify"),
+    },
+  },
   module: {
     rules: [
       {
