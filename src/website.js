@@ -37,6 +37,7 @@ function createNavbar(){
     menuButton.textContent = "Menu";
     menuButton.addEventListener("click", function() {
         handleButtons(this, createMenu(), "Check Out", "Our Menus");
+        menuButtons();
     });
     navbarCollapse.appendChild(menuButton);
 
