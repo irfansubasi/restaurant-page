@@ -48,7 +48,13 @@ function createNavbar(){
         const leftSide = document.querySelector("#left-side");
         leftSide.classList.remove("w-100");
         leftSide.classList.add("w-50");
-
+        const topHeader = document.querySelector("#top-header");
+        const bottomHeader = document.querySelector("#bottom-header");
+        topHeader.textContent = "Check Out";
+        bottomHeader.textContent = "Our Menus";
+        bottomHeader.style.fontSize = "5rem";
+        const descText = document.querySelector("#desc-text");
+        descText.parentNode.removeChild(descText);
     });
     navbarCollapse.appendChild(menuButton);
 
@@ -67,7 +73,13 @@ function createNavbar(){
         const leftSide = document.querySelector("#left-side");
         leftSide.classList.remove("w-100");
         leftSide.classList.add("w-50");
-
+        const topHeader = document.querySelector("#top-header");
+        const bottomHeader = document.querySelector("#bottom-header");
+        topHeader.textContent = "Discover";
+        bottomHeader.textContent = "Baratie";
+        bottomHeader.style.fontSize = "5rem";
+        const descText = document.querySelector("#desc-text");
+        descText.parentNode.removeChild(descText);
     });
     navbarCollapse.appendChild(RestButton);
 
@@ -86,7 +98,13 @@ function createNavbar(){
         const leftSide = document.querySelector("#left-side");
         leftSide.classList.remove("w-100");
         leftSide.classList.add("w-50");
-        
+        const topHeader = document.querySelector("#top-header");
+        const bottomHeader = document.querySelector("#bottom-header");
+        topHeader.textContent = "Contact";
+        bottomHeader.textContent = "Get in Touch";
+        bottomHeader.style.fontSize = "5rem";
+        const descText = document.querySelector("#desc-text");
+        descText.parentNode.removeChild(descText);
     });
     navbarCollapse.appendChild(contactButton);
 
@@ -105,6 +123,13 @@ function createNavbar(){
         const leftSide = document.querySelector("#left-side");
         leftSide.classList.remove("w-100");
         leftSide.classList.add("w-50");
+        const topHeader = document.querySelector("#top-header");
+        const bottomHeader = document.querySelector("#bottom-header");
+        topHeader.textContent = "Book a Table";
+        bottomHeader.textContent = "Reservation";
+        bottomHeader.style.fontSize = "5rem";
+        const descText = document.querySelector("#desc-text");
+        descText.parentNode.removeChild(descText);
     });
     navbarCollapse.appendChild(ReservButton);
 

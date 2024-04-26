@@ -8,16 +8,19 @@ function createHome(){
     content.appendChild(container);
     
     const h2 = document.createElement("h2");
+    h2.id = "top-header";
     h2.classList.add("fancy-font")
     h2.textContent = "The pure taste of";
     container.appendChild(h2);
     
     const h1 = document.createElement("h1");
+    h1.id = "bottom-header";
     h1.classList.add("h-1")
     h1.textContent = "Italy";
     container.appendChild(h1);
     
     const p = document.createElement("p");
+    p.id = "desc-text";
     p.classList.add("lead");
     p.textContent = "We bring together the finest flavors from around the globe. Experience tastes from Italy to Japan, Mexico to Thailand, and beyond. With our unique recipes crafted from high-quality ingredients, we'll take you on a delicious journey around the world.";
     container.appendChild(p);

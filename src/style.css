@@ -37,12 +37,12 @@ body{
 }
 
 #content h1{
-    font-size: calc(7rem + 1.5vw)!important;
+    font-size: calc(7rem + 1.5vw);
 }
 
 #content h2{
     
-    font-size: calc(2rem + 1.5vw)!important;
+    font-size: calc(2rem + 1.5vw);
 }
 
 .btn:hover{
