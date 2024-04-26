@@ -29,10 +29,21 @@ body{
 }
 
 #left-side{
-    background: url("images/bg-home.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    z-index: 1;
+    position: relative;
+    background: url("images/bg-home.png") center/cover no-repeat;
+}
+
+#left-side::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
 }
 
 .navbar{
@@ -105,6 +116,10 @@ body{
     color: #E4A11B!important;
 }
 
+a{
+    text-decoration: none!important;
+}
+
 .food-0{
     background-image: url("images/toast.png");
 }
@@ -135,13 +150,26 @@ body{
     resize: none;
 }
 
+button[type="submit"]:hover {
+    color: #fff;
+}
+
 @media (max-width: 1080px) {
     .main-content {
         height: 100%!important;
         flex-direction: column;
     }
+    #left-side{
+        height: 100vh!important;
+    }
 
     #left-side, #right-side {
         width: 100%!important;
+    }
+}
+
+@media (max-width: 400px) {
+    #desc-text{
+        font-size: 3vw;
     }
 }

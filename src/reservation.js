@@ -96,6 +96,9 @@ function createForm(){
     submitButton.classList.add("btn", "btn-warning", "w-100");
     submitButton.textContent = "BOOK A TABLE";
     sumbitDiv.appendChild(submitButton);
+    submitButton.addEventListener("click", (e) => {
+        e.preventDefault();
+    });
 
     return rightSide;
 }

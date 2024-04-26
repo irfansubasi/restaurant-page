@@ -5,13 +5,46 @@ import createInfo from "./info";
 import createContact from "./contact";
 
 function createHeader(){
+    // <footer class="footer">
+    //     <p>
+    //         <!-- Copyright notice -->
+    //         Copyright ©
+    //         <script>
+    //           document.write(new Date().getFullYear())
+    //         </script>
+    //         |
+    //       </p>
+    //       <!-- GitHub link -->
+    //       <a href="https://github.com/irfansubasi" target="_blank">
+    //         irfansubasi
+    //         <!-- GitHub icon -->
+    //         <i class="fa-brands fa-github"></i></a>
+    // </footer>
     const header = document.createElement("header");
     const logo = document.createElement("p");
+    const github = document.createElement("div");
+
+    github.id = "github";
+    github.classList.add("text-center");
+    github.innerHTML = `
+        <p class="text-white" style="--bs-text-opacity: .5;"> 
+            Copyright ©
+            <script>
+            document.write(new Date().getFullYear())
+            </script>
+            |
+            <a class="text-white" style="--bs-text-opacity: .5;" href="https://github.com/irfansubasi" target="_blank">
+                irfansubasi
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </p>
+    `;
 
     logo.id = "logo";
     logo.classList.add("h2", "text-center", "p-4");
     logo.textContent = "baratie.";
 
+    header.appendChild(github);
     header.appendChild(logo);
 
     return header;
@@ -25,7 +58,7 @@ function createMain(){
 
 function createNavbar(){
     const navbar = document.createElement("nav");
-    navbar.classList.add("navbar", "navbar-expand-lg", "bg-light", "mb-4", "mx-auto");
+    navbar.classList.add("navbar", "navbar-expand-md", "bg-light", "mb-4", "mx-auto");
 
     const navbarCollapse = document.createElement("div");
     navbarCollapse.id = "navbar-inside"
@@ -35,7 +68,7 @@ function createNavbar(){
     menuButton.classList.add("nav-item", "btn");
     menuButton.textContent = "Menu";
     menuButton.addEventListener("click", function() {
-        handleButtons(this, createMenu(), "Check Out", "Our Menus");
+        handleButtons(this, createMenu(), "Check Out", "Our Menus", "bg-menu.png");
         menuButtons();
     });
     navbarCollapse.appendChild(menuButton);
@@ -44,7 +77,7 @@ function createNavbar(){
     RestButton.classList.add("nav-item", "btn");
     RestButton.textContent = "Restaurant";
     RestButton.addEventListener("click", function() {
-        handleButtons(this, createInfo(), "Discover", "Baratie");
+        handleButtons(this, createInfo(), "Discover", "Baratie", "rest2.png");
     });
     navbarCollapse.appendChild(RestButton);
 
@@ -52,7 +85,7 @@ function createNavbar(){
     contactButton.classList.add("nav-item", "btn");
     contactButton.textContent = "Contact";
     contactButton.addEventListener("click", function() {
-        handleButtons(this, createContact(), "Contact", "Get in Touch");
+        handleButtons(this, createContact(), "Contact", "Get in Touch", "bg-contact.png");
     });
     navbarCollapse.appendChild(contactButton);
 
@@ -60,7 +93,7 @@ function createNavbar(){
     ReservButton.classList.add("nav-item", "btn");
     ReservButton.textContent = "Book a Table";
     ReservButton.addEventListener("click", function(){
-        handleButtons(this, createForm(), "Book a Table", "Reservation");
+        handleButtons(this, createForm(), "Book a Table", "Reservation", "bg-reserv.png");
     });
     navbarCollapse.appendChild(ReservButton);
 
@@ -71,8 +104,9 @@ function createNavbar(){
     return navbar;
 }
 
-function handleButtons(button, createThing, top, bottom){
+function handleButtons(button, createThing, top, bottom,bg){
     const mainContent = document.querySelector(".main-content");
+    const leftSide = document.querySelector("#left-side");
     if (button.classList.contains("active")) return;
         setActiveButton(button);
         mainContent.classList.remove("flex-column");
@@ -81,9 +115,9 @@ function handleButtons(button, createThing, top, bottom){
         rightSide.remove();
     }
     mainContent.appendChild(createThing);
-    const leftSide = document.querySelector("#left-side");
     leftSide.classList.remove("w-100");
     leftSide.classList.add("w-50");
+    leftSide.style.background = `url(./images/${bg}) center/cover no-repeat`;
     const topHeader = document.querySelector("#top-header");
     const bottomHeader = document.querySelector("#bottom-header");
     topHeader.textContent = top;

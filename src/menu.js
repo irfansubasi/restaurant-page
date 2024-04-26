@@ -6,7 +6,7 @@ function createMenu(){
 
 
     const navbar = document.createElement("nav");
-    navbar.classList.add("navbar", "navbar-expand-lg", "mx-auto", "menu-nav");
+    navbar.classList.add("navbar", "navbar-expand-md", "mx-auto", "menu-nav");
 
     const ul = document.createElement("ul");
     ul.classList.add("navbar-nav");

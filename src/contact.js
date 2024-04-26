@@ -74,6 +74,9 @@ function createContact(){
     submitButton.classList.add("btn", "btn-warning", "w-100", "mb-4");
     submitButton.textContent = "SEND";
     form.appendChild(submitButton);
+    submitButton.addEventListener("click", (e) => {
+        e.preventDefault();
+    });
 
     const infos = document.createElement("div");
     rightSide.appendChild(infos);
