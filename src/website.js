@@ -5,21 +5,6 @@ import createInfo from "./info";
 import createContact from "./contact";
 
 function createHeader(){
-    // <footer class="footer">
-    //     <p>
-    //         <!-- Copyright notice -->
-    //         Copyright ©
-    //         <script>
-    //           document.write(new Date().getFullYear())
-    //         </script>
-    //         |
-    //       </p>
-    //       <!-- GitHub link -->
-    //       <a href="https://github.com/irfansubasi" target="_blank">
-    //         irfansubasi
-    //         <!-- GitHub icon -->
-    //         <i class="fa-brands fa-github"></i></a>
-    // </footer>
     const header = document.createElement("header");
     const logo = document.createElement("p");
     const github = document.createElement("div");
@@ -104,6 +89,13 @@ function createNavbar(){
     return navbar;
 }
 
+function createScroll(){
+    const scroll = document.createElement("div");
+    scroll.classList.add("scroll-down");
+
+    return scroll;
+}
+
 function handleButtons(button, createThing, top, bottom,bg){
     const mainContent = document.querySelector(".main-content");
     const leftSide = document.querySelector("#left-side");
@@ -126,6 +118,10 @@ function handleButtons(button, createThing, top, bottom,bg){
     const descText = document.querySelector("#desc-text");
     if(descText){
         descText.parentNode.removeChild(descText);
+    }
+    if(window.innerWidth < 1080){
+        const scrollWarning = document.querySelector(".scroll-down");
+        scrollWarning.style.opacity = "1";
     }
 }
 
@@ -191,16 +187,22 @@ function renderPage(){
 
     const mainContent = document.querySelector(".main-content");
 
-    const lefSide = document.createElement("div");
-    lefSide.id = "left-side";
-    lefSide.classList.add("d-flex", "flex-column", "justify-content-center", "p-5", "h-100", "w-100");
+    const leftSide = document.createElement("div");
+    leftSide.id = "left-side";
+    leftSide.classList.add("d-flex", "flex-column", "justify-content-center", "p-5", "h-100", "w-100");
 
-    mainContent.appendChild(lefSide);
+    mainContent.appendChild(leftSide);
 
-    lefSide.appendChild(createHeader());
-    lefSide.appendChild(createMain());
+    leftSide.appendChild(createScroll());
+    leftSide.appendChild(createHeader());
+    leftSide.appendChild(createMain());
     loadHome();
-    lefSide.appendChild(createNavbar());
+    leftSide.appendChild(createNavbar());
+
+    document.addEventListener("touchstart", () => {
+        const scrollWarning = document.querySelector(".scroll-down");
+        scrollWarning.style.opacity = "0";
+    });
 }
 
 
