@@ -33,6 +33,7 @@ body{
 
 .navbar{
     border-radius: 5rem;
+    width: fit-content!important;
 }
 
 #content h1{
