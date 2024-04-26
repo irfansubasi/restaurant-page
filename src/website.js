@@ -24,13 +24,12 @@ function createMain(){
 }
 
 function createNavbar(){
-    const mainContent = document.querySelector(".main-content");
     const navbar = document.createElement("nav");
-    navbar.classList.add("navbar", "navbar-expand", "bg-light", "mb-4", "mx-auto");
+    navbar.classList.add("navbar", "navbar-expand-lg", "bg-light", "mb-4", "mx-auto");
 
     const navbarCollapse = document.createElement("div");
     navbarCollapse.id = "navbar-inside"
-    navbarCollapse.classList.add("p-2", "collapse", "navbar-collapse", "justify-content-center");
+    navbarCollapse.classList.add("navbar-nav","p-2", "justify-content-center");
 
     const menuButton = document.createElement("button");
     menuButton.classList.add("nav-item", "btn");
